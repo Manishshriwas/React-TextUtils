@@ -1,4 +1,4 @@
-import React,{use, useState} from 'react'
+import React,{useState} from 'react'
 
 const TextForm=(props)=>{
     const[text,setText]=useState('' );
@@ -29,7 +29,7 @@ const TextForm=(props)=>{
         setWord(newText);
         let newTemp=0;
         for(let i=0;i<text.length;i++){
-             if(text[i]!=' '){
+             if(text[i]!==' '){
                 newTemp++;
              }
         }
