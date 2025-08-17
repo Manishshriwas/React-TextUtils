@@ -2,6 +2,7 @@ import React,{use, useState} from 'react'
 
 const TextForm=(props)=>{
     const[text,setText]=useState('' );
+    const[textRev,setTextRev]=useState('' );
     const[lower,setLower]=useState('');
     const[upper,setUpper]=useState('');
     const[word,setWord]=useState(0);
@@ -35,6 +36,21 @@ const TextForm=(props)=>{
         setCharacter(newTemp);
     }
 
+    const handleToClear=()=>{
+        setText('');
+        setLower('');
+        setCharacter(0);
+        setWord(0);
+        setUpper('');
+        setTextRev('');
+    }
+
+    const handleToRevesre=()=>{
+        let reversedStr = text.split("").reverse().join("");
+        setTextRev(reversedStr);
+
+    }
+
 
     return(
         <>
@@ -47,6 +63,8 @@ const TextForm=(props)=>{
             
             <button className="btn btn-primary mx-2" onClick={handleToLowercase}>Convert to Lowercase</button>
             <button className="btn btn-primary mx-2" onClick={handleToCountWordText}>Count words & characters</button>
+            <button className='btn btn-primary mx-2' onClick={handleToClear}>Clear text</button>
+            <button className='btn btn-primary mx-2' onClick={handleToRevesre}>Reverse text</button>
         </div>
          <div className="container">
             <h1>Your text summary</h1>
@@ -54,6 +72,7 @@ const TextForm=(props)=>{
            <p>UpperCase : {upper}</p>
            <p>Total Number Of Words : {word} And Total Number of Characters : {character}</p>
            <p>Total Time to Read : {word*0.008} Minutes </p>
+           <p>Reverse : {textRev} </p>
            <h2>Preview</h2>
            <p>{text}</p>
          </div>
